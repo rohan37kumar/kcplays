@@ -1,0 +1,557 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #1a1a1a;
+    --accent-color: #6366f1;
+    --accent-glow: #8b5cf6;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --border-color: #27272a;
+    --surface: #18181b;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow: hidden; /* Disable all scrollbars */
+}
+
+html {
+    overflow: hidden; /* Ensure no scrollbars on html element */
+    height: 100%;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-dots {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.dot:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.dot:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+    animation-duration: 6s;
+}
+
+.dot:nth-child(3) {
+    top: 80%;
+    left: 20%;
+    animation-delay: 4s;
+    animation-duration: 7s;
+}
+
+.dot:nth-child(4) {
+    top: 30%;
+    left: 70%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.dot:nth-child(5) {
+    top: 70%;
+    left: 50%;
+    animation-delay: 3s;
+    animation-duration: 5s;
+}
+
+/* Add more interactive dots */
+.dot:nth-child(6) {
+    top: 40%;
+    left: 30%;
+    animation-delay: 1.5s;
+    animation-duration: 10s;
+    background: var(--accent-glow);
+}
+
+.dot:nth-child(7) {
+    top: 90%;
+    left: 60%;
+    animation-delay: 2.5s;
+    animation-duration: 7s;
+    background: var(--accent-glow);
+}
+
+.dot:nth-child(8) {
+    top: 10%;
+    left: 90%;
+    animation-delay: 0.5s;
+    animation-duration: 9s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translateY(-30px) translateX(15px) scale(1.2);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-20px) translateX(-20px) scale(0.8);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-40px) translateX(10px) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* Container */
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    display: none;
+}
+
+.nav {
+    display: none;
+}
+
+.logo-text {
+    display: none;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.hero-section {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-text {
+    animation: slideInLeft 1s ease-out;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.line {
+    display: block;
+    animation: slideInUp 0.8s ease-out forwards;
+    transform: translateY(100%);
+}
+
+.line:nth-child(1) {
+    animation-delay: 0.2s;
+    font-size: 0.6em;
+    opacity: 0.8;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+}
+
+.line:nth-child(2) {
+    animation-delay: 0.4s;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+@keyframes slideInUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-out 0.6s both;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 300;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-section {
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.cta-button {
+    position: relative;
+    padding: 1rem 2rem;
+    background: var(--surface);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-button:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    color: var(--text-primary);
+}
+
+.button-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover .button-glow {
+    left: 100%;
+}
+
+/* Hero Visual */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 1s ease-out 0.4s both;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Game Development Visual Elements */
+.game-dev-visual {
+    position: relative;
+    width: 350px;
+    height: 300px;
+}
+
+.code-editor {
+    background: rgba(24, 24, 27, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    animation: float-editor 6s ease-in-out infinite;
+}
+
+@keyframes float-editor {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.editor-header {
+    background: rgba(39, 39, 42, 0.8);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.control.close { background: #ff5f57; }
+.control.minimize { background: #ffbd2e; }
+.control.maximize { background: #28ca42; }
+
+.file-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.editor-content {
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.code-line {
+    display: flex;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.code-line.active {
+    background: rgba(99, 102, 241, 0.1);
+    margin: 0 -1rem 0.5rem -1rem;
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+}
+
+.line-number {
+    color: var(--text-muted);
+    width: 20px;
+    text-align: right;
+    margin-right: 1rem;
+    user-select: none;
+}
+
+.code-text {
+    color: var(--text-secondary);
+}
+
+.keyword { color: #c792ea; }
+.variable { color: #82aaff; }
+.method { color: #82aaff; }
+.string { color: #c3e88d; }
+.comment { color: var(--text-muted); font-style: italic; }
+
+.cursor {
+    animation: blink 1s step-end infinite;
+    color: var(--accent-color);
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.game-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: float-icon 4s ease-in-out infinite;
+}
+
+.game-icon.controller {
+    top: 20%;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.game-icon.code {
+    bottom: 30%;
+    left: -30px;
+    animation-delay: 1s;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.game-icon.pixel {
+    top: 60%;
+    right: -15px;
+    animation-delay: 2s;
+    color: var(--accent-glow);
+}
+
+.game-icon.lightning {
+    top: 10%;
+    left: -25px;
+    animation-delay: 0.5s;
+    color: var(--accent-color);
+}
+
+@keyframes float-icon {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-15px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-visual {
+        order: -1;
+    }
+    
+    .game-dev-visual {
+        width: 300px;
+        height: 250px;
+        margin: 0 auto;
+    }
+    
+    .editor-content {
+        font-size: 0.7rem;
+        padding: 0.75rem;
+    }
+    
+    .game-icon {
+        font-size: 1.2rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC</title>
+    <link rel="icon" type="image/x-icon" href="tobi.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="background-animation">
+            <div class="floating-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h1 class="title">
+                        <span class="line">cranekyle03</span>
+                        <span class="line">game developer</span>
+                    </h1>
+                    <p class="subtitle">
+                        currently building the next level...
+                    </p>
+
+                    <div class="cta-section">
+                        <a href="https://github.com/rohan37kumar/" target="_blank" class="cta-button" id="connectBtn">
+                            <span>connect</span>
+                            <div class="button-glow"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="game-dev-visual">
+                        <div class="code-editor">
+                            <div class="editor-header">
+                                <div class="window-controls">
+                                    <div class="control close"></div>
+                                    <div class="control minimize"></div>
+                                    <div class="control maximize"></div>
+                                </div>
+                                <div class="file-name">game.cs</div>
+                            </div>
+                            <div class="editor-content">
+                                <div class="code-line">
+                                    <span class="line-number">1</span>
+                                    <span class="code-text">function <span class="keyword">createGame</span>() {</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">2</span>
+                                    <span class="code-text"> const <span class="variable">world</span> = new <span
+                                            class="keyword">World</span>();</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">3</span>
+                                    <span class="code-text"> <span class="variable">world</span>.<span
+                                            class="method">spawn</span>(<span class="string">'player'</span>);</span>
+                                </div>
+                                <div class="code-line active">
+                                    <span class="line-number">4</span>
+                                    <span class="code-text"> <span class="comment">// magic happens here</span><span
+                                            class="cursor">|</span></span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="line-number">5</span>
+                                    <span class="code-text">}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="floating-elements">
+                            <div class="game-icon controller">🎮</div>
+                            <div class="game-icon code">{ }</div>
+                            <div class="game-icon pixel">⬛</div>
+                            <div class="game-icon lightning">⚡</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--         
+        <div class="notification-popup" id="notificationPopup">
+        <div class="popup-content">
+            <h3>get notified</h3>
+            <p>won't spam, I swear...!!!</p>
+            <div class="email-form">
+                <input type="email" placeholder="Enter your email" id="emailInput">
+                <button type="submit" id="subscribeBtn">Subscribe</button>
+            </div>
+            <button class="close-popup" id="closePopup">&times;</button>
+        </div>
+        -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
